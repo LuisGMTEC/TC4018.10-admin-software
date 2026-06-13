@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "salesvision-ai"
+version = "0.1.0"
+description = "SalesVision AI - Sprint 1 minimal backend"
+authors = ["Luis Angel Garcia <a01795985@tec.mx>"]
+packages = [ { include = "salesvision_ai", from = "src" } ]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.100.0"
+uvicorn = "^0.22.0"
+pandas = "^2.0.0"
+python-multipart = "^0.0.6"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+httpx = "^0.24.0"
+black = "^24.0"
+ruff = "^0.7.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
