@@ -7,7 +7,8 @@ import requests
 import streamlit as st
 
 BACKEND_URL = "http://localhost:8000/api/v1/data/upload"
-CONFIG_PATH = Path("prediction_config.json")
+DATA_DIR = Path("data")
+CONFIG_PATH = DATA_DIR / "prediction_config.json"
 
 
 def upload_csv_to_backend(file_bytes: bytes, filename: str, backend_url: str):
@@ -22,6 +23,7 @@ def load_dataframe(file_bytes: bytes):
 
 
 def save_prediction_config(config: dict) -> Path:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
     CONFIG_PATH.write_text(json.dumps(config, indent=2, ensure_ascii=False), encoding="utf-8")
     return CONFIG_PATH
 
